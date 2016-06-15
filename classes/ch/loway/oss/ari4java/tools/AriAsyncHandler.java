@@ -20,6 +20,7 @@ public class AriAsyncHandler<T> implements HttpResponseHandler {
 
     public AriAsyncHandler(AriCallback<? super T> callback, TypeReference<T> klazzType) {
         this.callback = callback;
+        this.klazzType = klazzType;
     }
 
     public AriCallback<? super T> getCallback() {
@@ -43,13 +44,13 @@ public class AriAsyncHandler<T> implements HttpResponseHandler {
     }
 
     @Override
-    public void onConnect() {
+    public void onChReadyToWrite() {
         // Client connected. That's good.
     }
 
     @Override
-    public void onDisconnect() {
-        this.callback.onFailure(new RestException("Asterisk WS is disconnected. Please retry."));
+    public void onResponseReceived() {
+        //this.callback.onFailure(new RestException("Asterisk WS is disconnected. Please retry."));
     }
 
     @Override

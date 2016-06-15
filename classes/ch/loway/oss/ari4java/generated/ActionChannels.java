@@ -3,7 +3,7 @@ package ch.loway.oss.ari4java.generated;
 // ----------------------------------------------------
 //      THIS CLASS WAS GENERATED AUTOMATICALLY         
 //               PLEASE DO NOT EDIT                    
-//    Generated on: Fri Mar 20 17:43:44 CET 2015
+//    Generated on: Sat Jan 30 13:39:05 CET 2016
 // ----------------------------------------------------
 
 import java.util.Date;
@@ -247,6 +247,27 @@ public void originate(String endpoint, String extension, String context, long pr
  * @since ari_0_0_1
  *********************************************************/
 public Channel get(String channelId) throws RestException;
+
+
+
+// void redirect String String AriCallback<Void> callback
+/**********************************************************
+ * 
+ * 
+ * @since ari_1_8_0
+ *********************************************************/
+public void redirect(String channelId, String endpoint, AriCallback<Void> callback);
+
+
+
+// void redirect String String
+/**********************************************************
+ * Redirect the channel to a different location.
+ * 
+ * 
+ * @since ari_1_8_0
+ *********************************************************/
+public void redirect(String channelId, String endpoint) throws RestException;
 
 
 

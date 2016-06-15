@@ -64,6 +64,18 @@ public class ARI {
         this.version = version;
     }
     
+    
+    /**
+     * Returns the current ARI version.
+     * 
+     * @return the ARI version currently used.
+     * @throws ARIException 
+     */
+    
+    public AriVersion getVersion() throws ARIException {
+        return version;
+    }
+    
 
     /**
      * Get the implementation for a given action interface
@@ -143,7 +155,7 @@ public class ARI {
         }
         BaseAriAction ba = (BaseAriAction) action;
         try {
-            ba.close();
+            ba.disconnectWs();
         } catch (RestException e) {
             throw new ARIException(e.getMessage());
         }
@@ -206,7 +218,7 @@ public class ARI {
     /**
      * Return the current application name.
      * 
-     * @return 
+     * @return the appName
      */
     
     public String getAppName() {
@@ -316,7 +328,7 @@ public class ARI {
      */
 
     private static String findVersionString(String response) throws ARIException {
-        Pattern p = Pattern.compile(".apiVersion.:\\s+\"(.+?)\"", Pattern.MULTILINE + Pattern.CASE_INSENSITIVE );
+        Pattern p = Pattern.compile(".apiVersion.:\\s*\"(.+?)\"", Pattern.MULTILINE + Pattern.CASE_INSENSITIVE );
 
         Matcher m = p.matcher(response);
         if ( m.find()  ) {
@@ -399,7 +411,7 @@ public class ARI {
             }
         });
 
-        // register the AE so we can close it when the erorr goes down
+        // register the AE so we can disconnectWs it when the erorr goes down
         liveActionEvent = ae;
         return q;
 
@@ -563,7 +575,7 @@ public class ARI {
      * Subscribes to an event source.
      * 
      * @param m
-     * @return
+     * @return the Application object 
      * @throws RestException 
      */
     
