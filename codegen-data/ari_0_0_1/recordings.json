@@ -311,14 +311,6 @@
 					"required": false,
 					"type": "string",
 					"description": "Cause for recording failure if failed"
-				},
-				"state": {
-					"required": true,
-					"type": "string"
-				},
-				"format": {
-					"required": true,
-					"type": "string"
 				}
 			}
 		}
