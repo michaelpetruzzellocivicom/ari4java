@@ -36,7 +36,6 @@ public class NettyHttpClientHandler extends SimpleChannelInboundHandler<Object> 
             //System.out.println( "S:" + responseStatus + " T:" + responseText);
             
         } else {
-            // TODO: what?
             if ( msg != null ) {
                 System.out.println( "Unknown object:" + msg);
             }

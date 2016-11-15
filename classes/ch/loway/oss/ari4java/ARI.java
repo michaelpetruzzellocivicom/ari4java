@@ -266,7 +266,6 @@ public class ARI {
     /**
      * Runs an HTTP GET and returns the text downloaded.
      *
-     * \TODO does it really belong here?
      * 
      * @param urlWithParms
      * @param user
@@ -542,7 +541,6 @@ public class ARI {
      * 
      * See the getActionImpl() method here.
      * 
-     * \TODO
      * 
      * @param a
      * @return  an Action object on which we'll set the default clients.
